@@ -1,0 +1,8 @@
+.map-country {
+	height: 70vh;
+	width: 100vw;
+	position: fixed;
+	top: 50%;
+	margin-top: -30vh;
+	transition:all 1s;
+}

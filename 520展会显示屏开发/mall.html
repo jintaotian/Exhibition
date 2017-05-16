@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>农资商城</title>
+	<link rel="stylesheet" href="css/base.css">
+	<style>
+		.back-btn {
+			position: fixed;
+			left: 2vw;
+			top: 0;
+			z-index: 100;
+			width: 8vw;
+			height: 5vh;
+			color: #fff;
+			font-size: 1.25vw;
+			background-color: rgba(0, 0, 0,.6);
+			text-align: center;
+			line-height: 5vh;
+			border-radius: 5px;
+		}
+		.iframe{
+			display: block;
+			width: 100vw;
+			height: 100vh;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<a class="back-btn" href="index.html">返回首页</a>
+	<iframe id="myiframe" class="iframe" target="_self" src="https://mall.51zhongzi.com"></iframe>
+</body>
+</html>
+<script>
+	var _parentWin = window.parent ; 
+	_parentWin.form1.username.value = "xxxx"; 
+</script>

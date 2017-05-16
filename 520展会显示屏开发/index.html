@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>会展展示</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/index.css">
+	
+</head>
+<body>
+	<div class="container">
+		<header class="header boxSizing">
+			<a class="header-left_logo" href="index.html"></a>
+			<div class="header-right">
+				<span id="time" class="header-right_time">00:00</span>
+				<div class="header-right_block">
+					<span id="date">0000/00/00</span>
+					<p id="week">星期</p>
+				</div>
+			</div>
+		</header>
+		<div class="module">
+			<div class="module-item">
+				<p class="module-block item-first">
+					<a id="video-btn" class="module-first_video hover-class">
+						<img src="images/azw.jpg">
+					</a>
+					<a  href="mall.html"  class="module-first_shoppingcar hover-class" ></a>
+				</p>
+				<a href="hugedata.html" class="module-block module-item-data hover-class" ></a>
+				<a href="field.html" class="module-block module-item-field hover-class" ></a>
+				<p class="module-block item-four">
+					<a class="hover-class">农业保险</a>
+					<a class="hover-class">农业咨询</a>
+					<a class="hover-class">农技技术</a>
+				</p>
+				<a href="un_query.html" class="module-block module-item-plate hover-class"></a>
+				<a href="informatization.html" class="module-block item-six hover-class"></a>
+			</div>
+		</div>
+		<div class="video-wrap">
+			<video id="video" onclick="pause()" controls="controls">
+				<source src="video/show.mp4" type="video/mp4">
+			</video>
+		</div>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="js/common.js"></script>
+</body>
+</html>
+<script>
+	$('#video-btn').on('click',function(event) {
+		$('.video-wrap').show();
+		fullScreen(document.getElementById('video'));
+	});
+
+	$('#video').on('click',function(event) {
+		$('.video-wrap').hide();
+	});
+
+	function fullScreen(element) {
+	  if(element.requestFullscreen) {  
+	    element.requestFullscreen();
+	    element.play();
+	  } else if(element.mozRequestFullScreen) {  
+	    element.mozRequestFullScreen();
+	    element.play();
+	  } else if(element.webkitRequestFullscreen) {  
+	    element.webkitRequestFullscreen();
+	    element.play(); 
+	  } else if(element.msRequestFullscreen) {  
+	    element.msRequestFullscreen();
+	    element.play();
+	  }  
+	}
+</script>

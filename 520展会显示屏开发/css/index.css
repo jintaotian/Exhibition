@@ -1,0 +1,176 @@
+@charset "utf-8";
+.container::after {filter:blur(0);}
+.module {
+	margin-top: 27.77vh;
+	text-align: center;
+}
+.module-item {
+	display: inline-block;
+	width: 73vw;
+}
+.module .module-block {
+	float: left;
+	border-radius: 4px;
+	height: 23vh;
+	width: 18.75vw;
+	margin: .4375vw;
+	color: #bababa;
+	box-sizing: border-box;
+	position: relative;
+}
+.module .module-block:nth-child(1),.module .module-block:nth-child(2) {
+	width: 18.75vw;
+	height: 47.8vh;
+}
+
+.module .module-block:nth-child(4),.module .module-block:nth-child(5) {
+	width: 12.5vw;
+}
+.item-first {
+	display: flex;
+	flex-direction:column;
+}
+.item-first a {
+	flex:1;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.module-first_video {
+	background-color:#000;
+	background-size: 5vw 5vw;
+	margin-bottom: .4375vw;
+	position: relative;
+	
+}
+.module-first_video::after{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 1;
+	content: '';
+	display: block;
+	background:url(../images/play.png) no-repeat center center;
+}
+.module-first_video img {
+	height: 100%;
+	opacity: .4;
+}
+.module-first_shoppingcar {
+	background:rgba(185, 64, 52, .8) url(../images/shoppingcar.png) no-repeat 3vw center;
+	background-size: 6.875vw 6.875vw;
+	margin-top: .4375vw;
+	position: relative;
+	color: #bababa;
+}
+.module-item-data {
+	background:rgba(23, 125, 204, .8) url(../images/data.png) no-repeat center 7vh;
+	background-size: 11.25vw 11.25vw;
+}
+.module-item-field {
+	background:rgba(238, 124, 9, .8) url(../images/field.png) no-repeat 3vw center;
+	background-size: 6.875vw 6.875vw;
+}
+.module-item-plate {
+	background:rgba(41, 188, 100, .8) url(../images/plate.png) no-repeat center 1vh;
+	background-size: 6.875vw 6.875vw;
+}
+.item-four {
+	display: flex;
+	font-size: 1.5vw;
+	flex-direction:column;
+}
+.item-four a {
+	flex:1;
+	color: #bababa;
+	line-height: 6.7vh;
+	background-color: #e6e8ea;
+	border-radius: 4px;
+}
+.item-four a:nth-child(2){margin: 1.1111vh 0;}
+.item-six {
+	background:rgba(22, 154, 174, .8) url(../images/internet.png) no-repeat 3vw center;
+	background-size: 6.875vw 6.875vw;
+}
+.module .module-block::after,.module-first_shoppingcar::after {
+	position:absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	border-radius: 4px;
+	content: "爱种网宣传片";
+	display: block;
+	font-size: 1.875vw;
+	background-color: #e6e9ed;
+}
+.module .module-block::before,.module-first_shoppingcar::before {
+	position:absolute;
+	content: "";
+	z-index: 2;
+	right: 5.4vw;
+	top: 0;
+	bottom: 0;
+	display: block;
+	width: 10px;
+	border-radius: 10px;
+	background-color:rgba(230, 233, 237, 0.5);
+}
+.module .item-first::after,.module .item-four::after,.module .item-first::before,.module .item-four::before{content: none;}
+.module-first_shoppingcar::after {
+	top: 0;
+	writing-mode:tb-rl;
+}
+.module .module-item-data::after {
+	content: "农业大数据";
+	background-color: #e6eeee;
+	width: 100%;
+	line-height: 13vh;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+.module .module-item-data::before,.module .module-item-plate::before {
+	height: 10px;
+	width: 100%;
+	right: 0;
+	top: auto;
+	bottom: 12.5vh;
+	left: 0;
+}
+.module .module-item-plate::before {bottom: 6.6vh;}
+.module .module-item-field::after,.module .item-six::after,.module-first_shoppingcar::after {
+	content: "示范田";
+	writing-mode:tb-rl;
+	line-height: 5.625vw;
+	width: 5.625vw;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	text-indent: center;
+}
+.module .item-six::after {content: "种业信息化";}
+.module-first_shoppingcar::after {content: "农资商城";}
+.module .module-item-plate::after {
+	content: "统一查询平台";
+	left: 0;
+	font-size: 1.375vw;
+	line-height: 7.2222vh;
+}
+/**--视频容器-css-satrt--*/
+.video-wrap {
+	position: fixed;
+	z-index: 101;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 2vw;
+	box-sizing: border-box;
+	display: none;
+}
+.video-wrap #video {
+	display: block;
+	margin: 0 auto;
+	height: 100%;
+}
