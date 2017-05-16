@@ -41,7 +41,7 @@
 }
 .area-info_wrap>li .info-tit {
 	color: #f60;
-	font-size: 1.375vw;
+	font-size: 1.2vw;
 	margin-bottom: 3.6666vh;
 }
 .area-info_wrap .first-info {
@@ -79,9 +79,10 @@
 	margin-bottom: 2.2222vh;
 }
 .txt {
-	font-size: 1.25vw;
+	font-size: 1vw;
 	font-weight: bold;
 	margin-top: 3.3333vh;
+	color: #333;
 }
 /*--module2-css-satrt--*/
 .second-info_list {
@@ -95,6 +96,7 @@
 .second-info_list_tit {
 	overflow: hidden;
 	margin-bottom: 2.2222vh;
+	font-size: 0.2vw;
 }
 .second-info_list_tit span{
 	float: left;
