@@ -1,0 +1,479 @@
+/**
+ * fullPage 1.4.5
+ * https://github.com/alvarotrigo/fullPage.js
+ * MIT licensed
+ *
+ * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
+ */
+*{ margin:0; 
+	padding:0;	
+	border:none;
+	list-style:none;
+	text-decoration:none;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+	width:100%;
+	height:100%;
+}
+li a{ 
+	display:inline-block;
+	width:100%;
+}
+#superContainer {
+    height: 100%;
+    position: relative;
+}
+.section {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.slide {
+    float: left;
+}
+.slide, .slidesContainer {
+    height: 100%;
+    display: block;
+}
+.slides {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.section.table, .slide.table {
+    display: table;
+    width: 100%;
+}
+.tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+}
+.slidesContainer {
+    float: left;
+    position: relative;
+}
+.controlArrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    margin-top: -38px;
+}
+.controlArrow.prev {
+    left: 15px;
+    width: 0;
+    border-width: 38.5px 34px 38.5px 0;
+    border-color: transparent #fff transparent transparent;
+}
+.controlArrow.next {
+    right: 15px;
+    border-width: 38.5px 0 38.5px 34px;
+    border-color: transparent transparent transparent #fff;
+}
+.scrollable {
+    overflow: scroll;
+}
+.easing {
+    -webkit-transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out;
+}
+.fullPage-slidesNav {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    opacity: 1;
+}
+.fullPage-slidesNav.bottom {
+    bottom: 17px;
+}
+.fullPage-slidesNav.top {
+    top: 17px;
+}
+.fullPage-slidesNav li {
+    display: block;
+    width: 14px;
+    height: 13px;
+    margin: 7px;
+    position:relative;
+}
+.fullPage-slidesNav li {
+    display: inline-block;
+}
+.fullPage-tooltip {
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    font-family: arial, helvetica, sans-serif;
+    top: -2px;
+}
+.fullPage-tooltip.right {
+    right: 20px;
+}
+.fullPage-tooltip.left {
+    left: 20px;
+}
+/*爱种网2015*/
+.az2015{ 
+	width:100%;
+	text-align:center;
+	font-size:4em;
+	color:#b9cad9;
+	position:absolute;
+	top:40%;
+}
+.aizhonglieb{ 
+	width:100%;
+	height:85%;
+	margin:0 auto;
+	padding-top:19%;
+	text-align:center;
+	
+}
+.aizhonglieb .diyi{ 
+	width:100%;
+	overflow:hidden;
+	margin:0 auto;
+}
+.aizhonglieb .diyi a{ 
+	display:inline-block;
+	width:16%;
+	margin:0 1%;
+}
+.aizhonglieb .dier{ 
+	width:100%;
+}
+
+.aizhonglieb .dier a{ 
+	float:left;
+	width:20%;
+}
+/*示范3级*/
+#bar_list dl {
+    margin-top: 8px;
+}
+
+.sft-03{ 
+	width:100%;
+	height:71%;
+	margin:10% auto 0;
+	overflow:hidden;
+ }
+.sft-03 .top{
+	width:100%;
+	height:65%;	
+}
+.sft-03 .left-img{ 
+	text-align:center;
+	width:55%;
+	height:100%;
+	float:left;
+	background:url(ch-map03.png) no-repeat center center;
+	background-size:contain;
+	margin-right:3%;
+	 
+}
+.ditu-right{
+	width:33%;
+	height:100%;
+	float:left;
+}
+.ditu-right .ss{ 
+	overflow:hidden;
+	height:48%;
+	width:100%;
+}
+.ditu-right .zcrs{ 
+	width:50%;
+	height:100%;
+	float:left;
+	color:#c8d0d8;
+	text-align:center;
+}
+.zcrs .dh{ 
+	width:100%;
+	height:25%;
+	font-size:1em;
+	line-height:2em;
+	color:#c8d0d8;
+}
+.zcrs .rs{ 
+	width:70%;
+	margin-left:30%;
+	height:85%;
+	line-height:4em;
+	font-size:1.5em;
+	background:url(r.png) no-repeat;
+	background-size:100% auto;
+}
+
+.ditu-right .mj{ 
+	width:50%;
+	height:100%;
+	padding-top:5%;
+	float:left;
+	text-align:center;
+}
+.ditu-right .xx{ 
+	width:95%;
+	padding-left:5%;
+	height:50%;
+	margin-top:3%;
+	color:#c8d0d8;
+	text-align:center;
+	overflow:hidden;
+}
+.ditu-right .xx .xxlib{ 
+	width:12%; 
+	padding-right:3%; 
+	float:left; 
+	font-size:0.9em;
+}
+.xxlib li{ 
+	padding-top:4%;
+}
+.sft-03 .bot{ 
+	width:32%;
+	height:97%;
+	float:left;
+	overflow:hidden;
+	padding-left:2%;
+}
+.gdmj{ 
+	width:100%;
+	text-align:center;
+	float:left;
+	padding:0 0 80px 0;
+}
+.gdmj .mc{ 
+	font-size:1.2em;
+	padding-bottom:2.5em;
+	color:#c8d0d8;
+	text-align:left;
+}
+.gdmj .sl{ 
+	color:#c43434;
+	font-size:5.5em;
+	line-height:60px;
+	font-weight:bold;
+}
+.gdmj .mu{ 
+	color:#c8d0d8;
+	font-size:1.2em;
+}
+.zuowu{ 
+	width:100%;
+	float:right;
+}
+.zwtop{ 
+	width:100%;
+	height:8%;
+	overflow:hidden;
+}
+.zwtop span{ 
+	float:left;
+	width:33%;
+	text-align:center;
+	color:#c8d0d8;
+}
+.zuowu ul{ 
+	height:100%;
+}
+.zuowu li{ 
+	width:33%;
+	height:100%;
+	text-align:center;
+	float:left;
+}
+.zuowu li .mc{ 
+	width:100%;
+	height:20%;
+	color:#c8d0d8;
+}
+.zuowu li .img{ 
+	width:100%;
+	height:80%;
+}
+/*示范田四级页面*/
+.sft-04{ 
+	width:60%;
+	color:#c8d0d8;
+	text-indent:2em;
+	font-size:1.2em;
+	position:absolute;
+	left: 75%; 
+	top: 25%;
+}
+/*返回首页*/
+.stdbtn{ 
+	width:35px;
+	opacity:0.3;
+}
+/*返回按钮*/
+.sfx-fhan{ 
+	width:35px;
+	position:absolute;
+	top:5%;
+	right:2%;
+	z-index:999;
+	opacity:0.3;
+}
+.sfx-ff{ 
+	top:3%;
+}
+.jysj-fhan{ 
+	width:35px;
+	position:absolute;
+	top:5%;
+	right:5%;
+	z-index:999;
+	opacity:0.3;
+}
+.sfx02-fhan{ 
+	width:35px;
+	position:absolute;
+	top:5%;
+	right:5%;
+	z-index:999;
+	opacity:0.3;
+}
+
+/*2015经营数据*/
+.jysj{ 
+	width:100%;
+	height:100%;
+	color:#c8d0d8;
+	overflow:hidden;
+	opacity:1;
+}
+.jysj .yi{ 
+	width:100%;
+	font-size:5em;
+}
+.jysj .er{ 
+	padding-left:1.5%;
+	font-size:2em;
+}
+.jysj .sxqy{ 
+	font-size:1em;
+	position:absolute;
+	top:50%;
+}
+/*2015平台建设*/
+.jysj .yo{ 
+	font-size:3em;
+}
+.lib-ptjs { 
+	width:100%;
+	padding-top:10%;
+	text-align:center;
+}
+
+
+/*2016示范地图*/
+.sft-2016{ 
+	width:100%;
+	height:98%;
+	padding-top:1%;
+	text-align:center;
+	overflow:hidden;
+}
+.sft-2016 .ditu{ 
+	width:100%;
+	height:95%;
+	float:left;
+}
+/*.sft-2016 .diqu{ 
+	width:15%;
+	font-size:2em;
+	color:#c8d0d8;
+	display:inline-block;
+	float:left;
+	padding-top:30%;
+}*/
+
+/*2015 2016切换按钮*/
+.qh-06{ 
+	position:absolute;
+	bottom:5%;
+	right:5%;
+	width:35px;
+	z-index:999;
+	opacity:0.4;
+}
+/*2016平台建设*/
+.lieb-ptjs{ 
+	padding-top:50%;
+	width:100%;
+	height:72%;
+	text-align:center;
+	color:#c8d0d8;
+	padding-top:20%;
+	font-size:3em;
+}
+.lieb-ptjs span{
+	display:inline-block;
+	padding:0 3%; 
+	margin-bottom:3%;
+}
+/*2016经营数据*/
+.jysj .lijy{ 
+	width:100%;
+	height:72%;
+	padding-top:20%;
+	text-align:center;
+}
+/*2015图片建设*/
+.fwbgim{ 
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:-1;
+	background:url(2016.png) no-repeat center center ;
+	background-size:90% 90%;
+	
+}
+/*2015团队建设*/
+.tdjs-zp a{
+	display:inline-block;
+	margin:0 1%; 
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

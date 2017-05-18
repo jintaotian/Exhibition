@@ -23,7 +23,7 @@
 }
 .area-info_wrap>li {
 	width: 25vw;
-	height: 72vh;
+	height: 70vh;
 	background-color: #cfd1d2;
 	border-radius: 4px;
 	padding: 1.25vw 0;
@@ -91,7 +91,6 @@
 }
 .second-info_list_head {
 	overflow: hidden;
-	margin-bottom: 1vh;
 }
 .second-info_list_tit {
 	overflow: hidden;
@@ -101,7 +100,10 @@
 .second-info_list_tit span{
 	float: left;
 	color: #333;
-	font-size: 1.25vw;
+	font-size: .8vw;
+}
+.second-info_list_tit span:first-child{
+	font-size: 1vw;
 }
 .second-info_list_tit span:nth-child(2) {
 	float: right;
@@ -112,11 +114,13 @@
 	color: #333;
 	font-size: 1vw;
 	line-height: 3.3333vh;
+	font-size: .8vw;
 }
 .second-info_imgs {
 	display: flex;
 	flex-wrap: wrap;
 	overflow: hidden;
+	margin-top: .5vw;
 	margin-right: -1.5%;
 	margin-left: -1.5%;
 }
@@ -132,9 +136,9 @@
 }
 .third-info span:nth-child(2) {
 	color: #333;
-	font-size: 1.25vw;
+	font-size: .8vw;
 }
-.scroll-page::after {
+/*.scroll-page::after {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -142,7 +146,7 @@
 	content: "";
 	background-color: rgba(0, 0, 0, 0.5);
 	height: 3vh;
-}
+}*/
 .scroll-page::before {
 	position: absolute;
 	bottom: 0;
@@ -190,6 +194,7 @@
 }
 .bottom-line span {
 	position: relative;
+	color: #999;
 }
 .bottom-line span:after,.bottom-line span:before {
 	position: absolute;
@@ -199,7 +204,7 @@
 	display: block;
 	width: 3vw;
 	left: -4vw;
-	background-color: #666;
+	background-color: #afafaf;
 }
 .bottom-line span:after {
 	left: auto;

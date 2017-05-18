@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ 
+	margin:0; 
+	padding:0;	
+	border:none;
+	list-style:none;
+	text-decoration:none;
+}
+
+html{ 
+	height:100%;
+}
+body{ 
+	width:100%;
+	height:100%;
+	font: normal 100% Helvetica, Arial, sans-serif; 
+}
+
+
+/*爱种网2015*/
+.sft-bg{ 
+	width:100%;
+	height:100%;
+	background:url(../images/dashuju.jpg) no-repeat;
+	background-size: 100% 100%;
+	overflow:hidden;
+}
+.az2015{ 
+	font-size:3em;
+	color:#8697a5;
+	position:absolute;
+	left:28%;
+	top:42%;
+}
+

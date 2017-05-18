@@ -1,0 +1,8 @@
+
+/* barbox */
+.barbox{height:22px;line-height:22px;overflow:hidden;}
+.barbox dt a{color:#0048CC;}
+.barbox dd{float:left;}
+.barbox dd.last{color:#999;}
+.barbox dd.barline{width:230px;background:url(jdtbg.png) left center no-repeat;height:25px;overflow:hidden;display:inline;}
+.barbox dd.barline div.charts_bar{height:25px;overflow:hidden;background:url(barbg.png) right center repeat-x;}

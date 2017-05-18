@@ -200,12 +200,15 @@ body{background-color: #333;}
 
 /* 返回首页按钮 */
 .container .home{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     padding: 0 2.5vw 2vw 0;
+    z-index: 999999;
+    width: 3.5vw;
 }
 .container .home img{
-    width: 3.5vw;
+    display: block;
+    width: 100%;
     opacity: .5;
 }

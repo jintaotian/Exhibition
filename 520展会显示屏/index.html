@@ -5,7 +5,23 @@
 	<title>会展展示</title>
 	<link rel="stylesheet" href="css/base.css">
 	<link rel="stylesheet" href="css/index.css">
-	
+	<style>
+		.openmall {
+			position: fixed;
+			width: 80vw;
+			height: 80vh;
+			z-index: 1000;
+			left: 10vw;
+			top: 10vh;
+			display: none;
+		}
+		.openmall .iframe {
+			width: 100%;
+			height: 100%;
+			display: block;
+			background-color: #fff;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
@@ -25,16 +41,16 @@
 					<a id="video-btn" class="module-first_video hover-class">
 						<img src="images/azw.jpg">
 					</a>
-					<a  href="mall.html"  class="module-first_shoppingcar hover-class" ></a>
+					<a class="module-first_shoppingcar hover-class" href="javascript:openmall()"></a>
 				</p>
-				<a href="hugedata.html" class="module-block module-item-data hover-class" ></a>
-				<a href="field.html" class="module-block module-item-field hover-class" ></a>
+				<a class="module-block module-item-data hover-class" href="hugedata.html"></a>
+				<a class="module-block module-item-field hover-class" href="field.html"></a>
 				<p class="module-block item-four">
 					<a class="hover-class">农业保险</a>
 					<a class="hover-class">农业咨询</a>
 					<a class="hover-class">农技技术</a>
 				</p>
-				<a href="un_query.html" class="module-block module-item-plate hover-class"></a>
+				<a href="in_query.html" class="module-block module-item-plate hover-class"></a>
 				<a href="informatization.html" class="module-block item-six hover-class"></a>
 			</div>
 		</div>
@@ -44,9 +60,12 @@
 			</video>
 		</div>
 	</div>
-	
+	<div class="openmall">
+		
+	</div>
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="js/common.js"></script>
+
 </body>
 </html>
 <script>
@@ -57,6 +76,10 @@
 
 	$('#video').on('click',function(event) {
 		$('.video-wrap').hide();
+	});
+
+	$('.module-first_shoppingcar').on('click', function(event) {
+		window.location.href = "mall.html";
 	});
 
 	function fullScreen(element) {
@@ -73,5 +96,9 @@
 	    element.msRequestFullscreen();
 	    element.play();
 	  }  
+	}
+	function openmall(){
+		// window.open("https://www.51zhongzi.com",'_self');
+		  window.open('https://www.51zhongzi.com', 'newwindow', 'height=80vh, width=80vw, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no')
 	}
 </script>

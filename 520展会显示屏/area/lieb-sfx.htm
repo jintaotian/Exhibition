@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html style="overflow: hidden; height: 100%;" lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>爱种大数据</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css" />
+<link rel="stylesheet" type="text/css" href="jquery.css">
+<link rel="stylesheet" type="text/css" href="progress.css" />
+<link rel="stylesheet" type="text/css" href="donghua.css" />
+<link rel="stylesheet" type="text/css" href="../css/field.css" />
+
+<style>
+body { font: 18px/1.8 "Microsoft Yahei",verdana;}
+.section { position: relative; overflow: hidden;}
+.active .bgimg01,.bgimg02{width:70%; height:75%;}
+.bgimg01 {transition:all 1s!important;margin-top: 20vh!important;transform: scale(1, 1)!important;}
+.sheng-xz{ width:40%; position:absolute; right:-5%; top:30%; font-size:0.8em;}
+.sheng-xz li{ width:20%; margin-left:5%; float:left; padding:0 5%; margin-bottom:5px; background:rgba(255,255,255,0.1); height:40px; line-height:40px; overflow:hidden; border-radius:8px 8px;}
+.sheng-xz li a{ color:#a4aeb7; overflow:hidden;}
+.sheng-xz .qy{  float:left;}
+.sheng-xz .sl{ float:right;}
+
+.leftMoveClass {
+    margin-left: -20%!important;
+}
+.bgimg02{background-image:url(ch-map02.png);}
+.xian-xz{ 
+	width:14%;
+	height:70%;
+	position:absolute;
+	right:14%;
+	top:15%;
+	font-size:1em;
+	background:rgba(255,255,255,0.1);
+	padding:1%;
+	opacity:0.8;
+	font-size:1em;
+    display: none!important;
+}
+.xian-xz .tou{ 
+	width:80%;
+	height:35px;
+	padding:0 5%;
+	color:#a4aeb7;
+	margin:0 auto;
+	border-bottom:1px solid #7a919f;
+}
+.xian-xz .xian{ 
+	color:#a4aeb7;
+	height:80%;
+	width:90%;
+	padding:0 5%;
+	margin-top:10%;
+	font-size:1em;
+	line-height:1em;
+	text-align:center;
+	overflow:auto;
+	scrollbar-face-color: #000;
+}
+.xian-xz .xian li{ 
+	width:100%;
+	padding:10px 0;
+	cursor:pointer;
+}
+.xian-xz .xian li a{ 
+	color:#a4aeb7;
+}
+.active .bg21 { opacity: 1; margin-left: -608px; transition-delay: 0.7s;}
+.active .bg23 { bottom: 15%; transition-delay: 0.7s;}
+.active .bg22 { margin-left: 25%; opacity: 1; transition-delay: 0.7s;}
+
+.active .p3 { margin-left: -480px; opacity: 1; transition-delay: 0.7s;}
+.active .bg31, .active .bg32 { opacity: 1; transition-delay: 1s;}
+.active .bg33 { margin-left: -120px; opacity: 1; transition-delay: 0.7s;}
+
+.active .bg41 { bottom: 15%; transition-delay: 0.7s;}
+.active .bg42 { bottom: 15%; transition-delay: 1.1s;}
+.active .bg43 { bottom: 15%; transition-delay: 0.9s;}
+
+.active .bg102, .active .bg103 { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+.active .go { top: 25%; opacity: 1; transition-delay: 1.2s;}
+
+.dl3{}
+</style>
+
+<script src="jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="jquery_002.js"></script>
+<script src="myjs.js"></script>
+<script src="echarts-all.js"></script>
+<script src="stat_map.js"></script>
+<script src="esl.js"></script>
+<script src="data.js"></script>
+<script src="map.js"></script>
+<script data-require-id="echarts" src="./echarts.js" async=""></script>
+<script data-require-id="echarts/chart/pie" src="./echarts.js" async=""></script>
+
+
+<script>
+$(function(){
+	if($.browser.msie && $.browser.version < 10){
+		$('body').addClass('ltie10');
+	}
+	$.fn.fullpage({
+		verticalCentered: false,
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8', 'page9', 'page10'],
+		navigation: true,
+	});
+});
+/*文字垂直居中*/
+function animate(){
+	$(".charts_bar").each(function(i,item){
+		var a=parseInt($(item).attr("w"));
+		$(item).animate({
+			width: a+"%"
+		},1000);
+	});
+}
+
+</script>
+
+</head>
+<body>
+<div class="container">
+<a href="../index.html" class="home"><img src="../images/home.png" alt=""></a>
+    <header class="header boxSizing">
+        <a class="header-left_logo" href="../index.html"></a>
+        <div class="header-right">
+            <span id="time" class="header-right_time">00:00</span>
+            <div class="header-right_block" style="padding-top: 3vh;">
+                <span id="date">0000/00/00</span>
+                <p id="week">星期</p>
+            </div>
+        </div>
+    </header>
+    <div style="position:absolute; top:2%; right:6%; z-index:9999" >
+        <div class="stdbtn" id="back-upper-level" style="display: none; padding:5px 10px;"><img src="4.png" alt="" width="95%"/></div>
+    </div>
+
+    <div style="top:0px; position:relative; overflow:hidden;" id="superContainer" >
+    	<div class="section active" style="position:relative; width:100%; height:100%" id="map" >
+            <div class="bot" style="display: none;">
+                <div class="gdmj">
+                    <div class="mc">耕地面积</div>
+                    <div style="padding:20px 0;">
+                        <span class="sl" id="plant_area"></span>
+                        <span class="mu">万亩</span>
+                    </div>
+                </div>
+                <div class="zuowu">
+                    <div id="pie" style="height:400px; margin-top:-2%;"></div>
+                </div>
+            </div>
+            
+    		<div class="bgimg01" id="client-map" style=""></div>
+                <div class="sheng-xz">
+                    <ul id="prov_list">
+                        
+                    </ul>
+                </div>
+            	<div class="xian-xz" style="display: none;">
+                    <div class="tou">
+                        <span style="float:left;" id="provinceName"></span>
+                        <span style="float:right;" id="countyCount"></span>
+                    </div>
+                <div class="xian" >
+                	<ul style="" id="county_list">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="ditu-right" style=" display: none; height:70%; float:right;">
+                <div class="ss">
+                    <div class="zcrs" style="width:50%" >
+                        <div class="dh" style="text-align:left; padding-left:10%; font-size:1.2em;">注册大户</div>
+                        <div class="rs" id="userCount">
+                        </div>
+                    </div>
+                    <div class="mj" id="pie_peop" style="text-align:center; width:50%; padding-top:5%;"></div>
+                    </div>
+                    <div class="xx">
+                        <div style="width:100%; height:20%; line-height:1.5em; text-align:left; font-size:1.2em;">上线品种市场占比</div>
+                        <div class="xxlib">
+                        	<ul>
+                            	<li>小麦</li>
+                            	<li>玉米</li>
+                            	<li>水稻</li>
+                            </ul>
+                        </div>
+                        <div  id="bar_list" style="width:85%; float:left"> </div> 
+                    </div>
+                </div> 
+    		</div>
+    </div>
+</div>
+<div class="area-info huge-data_bg">
+            <div class="big-details">
+                <div class="gendi flex">
+                    <h1>耕地面积</h1>
+                    <div class="acreage">
+                        230
+                        <span>万亩</span>
+                    </div>
+                    <div class="annular">
+                         <div id="annular1"></div>
+                    </div>
+                </div>
+    <!--             <div class="shitumap flex">
+                    <div id="sqmap"></div>
+                </div> -->
+                <div class="zhuce flex" style="margin-left: 6vw;">
+                    <h1>注册大户</h1>
+                    <div class="zhuceTop">
+                        <div class="renshu">
+                            381人
+                        </div>
+                        <div id="huanx">
+                            
+                        </div>
+                    </div>
+                    <div class="zhuceBot">
+                        <h1 class="sxpz">上线品种市场占比</h1>
+                        <ul>
+                            <li>
+                                <span>小麦</span>
+                                <p class="first"></p>
+                                <span>65%</span>
+                            </li>
+                            <li>
+                                <span>玉米</span>
+                                <p class="second"></p>
+                                <span>60%</span>
+                            </li>
+                            <li>
+                                <span>水稻</span>
+                                <p class="third"></p>
+                                <span>0%</span>
+                            </li>
+                        </ul>
+                    </div>                  
+                </div>
+            </div>
+        </div>
+        <div class="maskWrap"></div>
+<script src="../js/common.js"></script>
+<script src="../js/echarts.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var flag = true;
+        $('.maskWrap').on('click',function(event) {
+            flag = false;
+            $('.maskWrap').hide();
+            $('#client-map').removeClass('leftMoveClass');
+            $('.area-info').css('left', '100%');
+
+        });
+
+        $('#client-map').css({'width':'80vw','height':'80vh','margin-top':'10vh','margin-left':'15vw','transform':'scale(.9,.9)'})
+    require.config({
+        paths: {
+            echarts: './../js/dist'
+        }
+    });
+    require(
+        [
+            'echarts',
+            'echarts/chart/map',// 使用柱状图就加载bar模块，按需加载
+            'echarts/chart/pie',
+            'echarts/util/mapData/params'
+        ],
+        function (ec) {
+            var annular = ec.init(document.getElementById('annular1'));
+            var huanx = ec.init(document.getElementById('huanx'));
+        //大数据详情页环形
+            var labelTop = {
+                normal : {
+                    label : {
+                        show : true,
+                        position : 'center',
+                        formatter : '{b}',
+                        textStyle: {
+                            baseline : 'bottom'
+                        }
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                }
+            };
+
+            // 图形样式
+            var labelFromatter = {
+                normal : {
+                    color : '#2e4150',
+                    label : {
+                        formatter : 10,
+                        textStyle: {
+                            baseline : 'top',
+                            fontSize : '20',
+                        }
+                    },        
+                },
+
+            }
+            var optionZmap ={
+                series : [
+                    {
+                        type : 'pie',
+                        center : ['30%', '50%'],
+                        radius : radius,
+                        itemStyle : labelFromatter,
+                        data : [
+                            {name:'other', value:93, itemStyle : labelBottom},
+                            {name:'人数占比', value:7, itemStyle : labelTop}
+                        ]
+                    },
+                ]
+            }
+            var labelBottom = {
+                normal : {
+                    color: '#ddd',
+                    label : {
+                        show : true,
+                        position : 'center'
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                },
+                emphasis: {
+                    color: 'rgba(0,0,0,0)'
+                }
+            };
+            var radius = [65, 45];
+
+            var optionA = {
+                 
+                series : [
+                    {
+                        type : 'pie',
+                        center : ['15%', '50%'],
+                        radius : radius,
+                        itemStyle : labelFromatter,
+                        data : [
+                            {name:'other', value:10, itemStyle : labelBottom},
+                            {name:'小麦', value:90, itemStyle : labelTop}
+                        ]
+                    },
+                    {
+                        type : 'pie',
+                        center : ['50%', '50%'],
+                        radius : radius,
+                        itemStyle : labelFromatter,
+                        data : [
+                            {name:'other', value:35, itemStyle : labelBottom},
+                            {name:'玉米', value:65,itemStyle : labelTop}
+                        ]
+                    },
+                    {
+                        type : 'pie',
+                        center : ['85%', '50%'],
+                        radius : radius,
+                        itemStyle : labelFromatter,
+                        data : [
+                            {name:'other', value:100, itemStyle : labelBottom},
+                            {name:'水稻', value:0,itemStyle : labelTop}
+                        ]
+                    }
+                ]
+            };
+            var optionZmap ={
+                series : [
+                    {
+                        type : 'pie',
+                        center : ['30%', '50%'],
+                        radius : radius,
+                        itemStyle : labelFromatter,
+                        data : [
+                            {name:'other', value:93, itemStyle : labelBottom},
+                            {name:'人数占比', value:7, itemStyle : labelTop}
+                        ]
+                    },
+                ]
+            }
+            annular.setOption(optionA);
+            huanx.setOption(optionZmap);
+        }
+    );
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

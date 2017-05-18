@@ -13,7 +13,8 @@
 	height: 18vw;
 	background: url(../images/in-1.png) no-repeat;
 	background-color: rgba(32,54,71,.7);
-	background-position: -40% -20%;
+	background-position: 220% -840%;
+	background-size: 120%;
 	border-radius: 8px;
 	display: inline-block;
 	padding-top: 15vw;
@@ -74,7 +75,8 @@
 .slideBox {
     overflow: hidden;
     margin: 0 auto;
-    max-width: 60vw;
+    max-width: 70vw;
+    padding-top: 3vw;
 }
 
 .slideBox .hd {

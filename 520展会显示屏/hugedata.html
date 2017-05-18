@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="container">
-		<a href="index.html" class="home"><img src="images/home.png" alt=""></a>
+	<a href="index.html" class="home"><img src="images/home.png" alt=""></a>
 		<header class="header boxSizing">
 			<a class="header-left_logo" href="index.html"></a>
 			<div class="header-right">
@@ -25,7 +25,7 @@
 				<div class="gendi flex">
 					<h1>耕地面积</h1>
 					<div class="acreage">
-						100
+						230
 						<span>万亩</span>
 					</div>
 					<div class="annular">
@@ -39,7 +39,7 @@
 					<h1>注册大户</h1>
 					<div class="zhuceTop">
 						<div class="renshu">
-							629人
+							381人
 						</div>
 						<div id="huanx">
 							
@@ -50,29 +50,46 @@
 						<ul>
 							<li>
 								<span>小麦</span>
-								<p></p>
-								<span>10%</span>
+								<p class="first"></p>
+								<span>65%</span>
 							</li>
 							<li>
-								<span>小麦</span>
-								<p></p>
-								<span>10%</span>
+								<span>玉米</span>
+								<p class="second"></p>
+								<span>60%</span>
 							</li>
 							<li>
-								<span>小麦</span>
-								<p></p>
-								<span>10%</span>
+								<span>水稻</span>
+								<p class="third"></p>
+								<span>0%</span>
 							</li>
 						</ul>
 					</div>					
 				</div>
 			</div>
 		</div>
+		<!-- <div class="chinaMap">
+			<span>2</span>
+			<span>1</span>
+			<span>3</span>
+		</div> -->
+		<!-- <span class="chinaMap-btn">home</span> -->
 		<div class="maskWrap"></div>
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script src="./js/echarts.js"></script>
+		<script src="./js/echarts-all.js"></script>
+		<script src="./js/map.js"></script>
+		<script src="./js/stat_map.js"></script>
+		<script src="./js/data.js"></script>
 		<script src="./js/common.js"></script>
 		<script src="./js/bigdatamap.js"></script>
 	</div>
 </body>
 </html>
+<script>
+	var num = 0;
+	$('.chinaMap-btn').click(function(event) {
+		num++;
+		$('.chinaMap').css({'transform':'rotate('+ num*-180 +'deg)'});
+	});
+</script>
